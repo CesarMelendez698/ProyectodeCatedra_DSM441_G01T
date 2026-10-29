@@ -72,6 +72,27 @@ class NewsAdapter(
 
             btnViewPortal.setOnClickListener { openInBrowser() }
             itemView.setOnClickListener { onItemClick(item) }
+
+            btnShareNews.setOnClickListener {
+                shareNewsItem(itemView.context, item)
+            }
+        }
+
+        private fun shareNewsItem(context: Context, item: NewsItem) {
+            try {
+                val shareText = "${item.titulo}\n\nLéela en el Portal UDB: ${item.enlaceWeb}"
+                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, item.titulo)
+                    putExtra(Intent.EXTRA_TEXT, shareText)
+                }
+                val chooser = Intent.createChooser(shareIntent, "Compartir Noticia UDB").apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                context.startActivity(chooser)
+            } catch (e: Exception) {
+                Toast.makeText(context, "No se pudo abrir las opciones de compartir", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
