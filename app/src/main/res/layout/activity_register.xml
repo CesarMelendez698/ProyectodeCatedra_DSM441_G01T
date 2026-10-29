@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/app_logo"
+            android:contentDescription="Logo Finanzas UDB"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nueva Cuenta"
+            android:textColor="@color/success"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Nombre"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="16dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Apellido"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="16dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etRegEmail"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Correo Electrónico"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- CONTRASEÑA CON OJO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_input_field"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="24dp">
+
+            <EditText
+                android:id="@+id/etRegPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Contraseña (Mínimo 6 caracteres)"
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_primary"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/ivRegPasswordToggle"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_view"
+                android:tint="@color/text_secondary"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Mostrar u ocultar" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Crear Cuenta"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_success_button" />
+
+        <TextView
+            android:id="@+id/tvBackToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes cuenta? Inicia sesión"
+            android:textColor="@color/success"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

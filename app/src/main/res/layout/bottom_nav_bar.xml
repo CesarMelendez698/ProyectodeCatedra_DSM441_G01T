@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomNavContainer"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    android:orientation="horizontal"
+    android:background="@color/card"
+    android:elevation="8dp"
+    android:baselineAligned="false">
+
+    <!-- 1. Resumen (Dashboard) -->
+    <LinearLayout
+        android:id="@+id/tabDashboard"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabDashboard"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_dashboard"
+            android:contentDescription="Resumen" />
+
+        <TextView
+            android:id="@+id/tvTabDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resumen"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 2. Movimientos (Transacciones) -->
+    <LinearLayout
+        android:id="@+id/tabTransactions"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabTransactions"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_transactions"
+            android:contentDescription="Movimientos" />
+
+        <TextView
+            android:id="@+id/tvTabTransactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movimientos"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 3. Presupuestos -->
+    <LinearLayout
+        android:id="@+id/tabBudgets"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabBudgets"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_budgets"
+            android:contentDescription="Presupuestos" />
+
+        <TextView
+            android:id="@+id/tvTabBudgets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Presupuestos"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 4. Horario -->
+    <LinearLayout
+        android:id="@+id/tabSchedule"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabSchedule"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_schedule"
+            android:contentDescription="Horario" />
+
+        <TextView
+            android:id="@+id/tvTabSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horario"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 5. Noticias -->
+    <LinearLayout
+        android:id="@+id/tabNews"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabNews"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_news"
+            android:contentDescription="Noticias" />
+
+        <TextView
+            android:id="@+id/tvTabNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Noticias"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 6. Perfil -->
+    <LinearLayout
+        android:id="@+id/tabProfile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivTabProfile"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_tab_profile"
+            android:contentDescription="Perfil" />
+
+        <TextView
+            android:id="@+id/tvTabProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textColor="@color/tab_inactive"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+</LinearLayout>

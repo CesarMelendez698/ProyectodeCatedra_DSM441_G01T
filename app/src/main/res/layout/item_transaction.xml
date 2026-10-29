@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/border"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp">
+
+        <!-- Icono Circular de Tipo -->
+        <FrameLayout
+            android:id="@+id/iconCircle"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_circle_green">
+
+            <TextView
+                android:id="@+id/tvIconArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="↓"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Información Central -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTxCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categoría"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTxDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción del movimiento"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:maxLines="1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvTxAccountTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💳 Cuenta de banco"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvTxDateTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="•  12-10-2026"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Columna Derecha: Monto y Botones Rápidos -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvTxAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+$0.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/income_green" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <ImageView
+                    android:id="@+id/btnEditTx"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:padding="5dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:tint="@color/accent"
+                    android:background="@drawable/bg_input_field"
+                    android:contentDescription="Editar" />
+
+                <ImageView
+                    android:id="@+id/btnDeleteTx"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:padding="5dp"
+                    android:layout_marginStart="6dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:tint="@color/danger"
+                    android:background="@drawable/bg_input_field"
+                    android:contentDescription="Eliminar" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

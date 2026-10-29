@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvBudgetCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🍔 Alimentación"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvBudgetValues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$65.00 / $100.00"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/btnDeleteBudget"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:padding="3dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:tint="@color/danger"
+                android:contentDescription="Eliminar presupuesto" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbBudgetProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:progress="65"
+            android:progressTint="#4CAF50" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvRemainingAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Restante: $35.00"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvBudgetWarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔴 Alerta: Presupuesto Excedido"
+                android:textColor="#F44336"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">FinanzasUDB</string>
+    <string name="app_name">Finanzas UDB</string>
+    <string name="title_login">Iniciar Sesión</string>
+    <string name="title_register">Registro Estudiantil</string>
+    <string name="title_dashboard">Resumen General</string>
+    <string name="title_transactions">Historial de Movimientos</string>
+    <string name="title_budgets">Límites y Presupuestos</string>
+    <string name="title_schedule">Horario Institucional</string>
+    <string name="title_news">Noticias UDB</string>
+    <string name="title_profile">Perfil de Usuario</string>
 </resources>

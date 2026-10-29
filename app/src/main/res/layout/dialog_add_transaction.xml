@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="@color/card"
+    app:strokeColor="@color/border"
+    app:strokeWidth="1dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Encabezado con título y botón cerrar X -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="➕ Capturar Transacción"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Ingresa los detalles de tu ingreso o gasto"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnCloseDialogCross"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="✕"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Selector Toggle: Gasto vs Ingreso -->
+            <RadioGroup
+                android:id="@+id/rgType"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_input_field">
+
+                <RadioButton
+                    android:id="@+id/rbGasto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="● Gasto"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_danger_button"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/rbIngreso"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="● Ingreso"
+                    android:gravity="center"
+                    android:textColor="@color/income_green"
+                    android:button="@null" />
+            </RadioGroup>
+
+            <!-- Fila 1: Monto ($) y Categoría -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Monto -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monto ($)"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etTxAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="$ 0.00"
+                        android:textColorHint="@color/text_secondary"
+                        android:textColor="@color/text_primary"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Categoría -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Categoría"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnAddCategoryInline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+ Nueva"
+                            android:textColor="@color/accent"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Spinner
+                        android:id="@+id/spinnerTxCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_input_field" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Indicador de Presupuesto / Límite de Gasto -->
+            <TextView
+                android:id="@+id/tvCategoryBudgetHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="💡 Presupuesto: Sin límite asignado"
+                android:textColor="@color/primary"
+                android:textSize="11sp" />
+
+            <!-- Fila 2: Fecha y Hora -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Fecha -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnTxDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_input_field"
+                        android:text="17-10-2026 📅"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+                <!-- Hora -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnTxTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_input_field"
+                        android:text="02:22 PM 🕒"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Fila 3: Descripción / Concepto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Descripción / Concepto"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etTxDescription"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Ej. Almuerzo, Transporte UDB, Salida..."
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_primary"
+                android:inputType="textCapSentences"
+                android:paddingHorizontal="14dp"
+                android:textSize="13sp" />
+
+            <!-- Fila 4: Cuenta Asignada + Botón + Nueva Cuenta -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cuenta asignada:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/btnAddAccountInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Nueva cuenta"
+                    android:textColor="@color/accent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerTxAccount"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_input_field" />
+
+            <!-- Botones: Registrar Movimiento / Cancelar -->
+            <Button
+                android:id="@+id/btnSaveTx"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="18dp"
+                android:text="Registrar Movimiento"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_primary_button" />
+
+            <Button
+                android:id="@+id/btnCancelTx"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="6dp"
+                android:text="Cancelar"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_input_field" />
+
+        </LinearLayout>
+    </ScrollView>
+</com.google.android.material.card.MaterialCardView>
