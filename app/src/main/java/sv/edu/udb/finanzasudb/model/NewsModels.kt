@@ -14,3 +14,18 @@ data class RawUdbNewsItem(
     @SerializedName("Enlace") val enlace: String?,
     @SerializedName("Receptor") val receptor: String?
 )
+
+/**
+ * Modelo de dominio para representar la noticia en RecyclerView
+ */
+data class NewsItem(
+    val id: String = "",
+    val titulo: String = "",
+    val descripcion: String = "",
+    val fecha: String = "",
+    val imagenThumb: String? = null,
+    val imagenFull: String? = null,
+    val url: String = ""
+) {
+    val enlaceWeb: String get() = url
+}
