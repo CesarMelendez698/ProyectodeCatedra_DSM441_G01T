@@ -6,4 +6,6 @@ data class UdbFee(
     val amount: Double = 0.0,
     val deadline: String = "",
     var isPaid: Boolean = false
-)
+) {
+    val dueDate: String get() = deadline
+}
