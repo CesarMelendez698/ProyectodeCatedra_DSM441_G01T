@@ -69,6 +69,35 @@ class GroupedSubjectAdapter(
                 else -> "📘 1 sesión semanal (Teoría)"
             }
             tvSessionsBadge.text = badgeText
+
+            // Formatear detalles de cada día
+            val detailsSb = StringBuilder()
+            item.sessions.forEachIndexed { index, session ->
+                val typeTag = when {
+                    session.activityType.equals("Laboratorio", ignoreCase = true) -> "🔬 Lab"
+                    session.activityType.equals("Teoría", ignoreCase = true) || session.activityType.equals("Teoria", ignoreCase = true) -> "📘 Teoría"
+                    else -> "📚 Clase"
+                }
+                val room = if (session.classroom.isNotEmpty()) session.classroom else "Campus Virtual"
+                detailsSb.append("• ${session.dayOfWeek}: ${session.startTime} - ${session.endTime} ($typeTag • $room)")
+                if (index < item.sessions.size - 1) {
+                    detailsSb.append("\n")
+                }
+            }
+            tvSessionsDetails.text = detailsSb.toString()
+
+            val colors = listOf("#EC4899", "#3B82F6", "#10B981", "#8B5CF6", "#F59E0B")
+            val chosenColor = try {
+                if (item.colorHex.isNotEmpty()) Color.parseColor(item.colorHex)
+                else Color.parseColor(colors[Math.abs(item.subjectName.hashCode()) % colors.size])
+            } catch (e: Exception) {
+                Color.parseColor("#3B82F6")
+            }
+            vColorBar.setBackgroundColor(chosenColor)
+
+            btnClone.setOnClickListener { onCloneClick(item) }
+            btnEdit.setOnClickListener { onEditClick(item) }
+            btnDelete.setOnClickListener { onDeleteClick(item) }
         }
     }
 }
