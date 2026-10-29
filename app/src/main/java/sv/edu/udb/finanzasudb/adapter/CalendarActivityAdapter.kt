@@ -52,6 +52,51 @@ class CalendarActivityAdapter(
             onDeleteClick: (CalendarActivity) -> Unit
         ) {
             tvTitle.text = item.title
+
+            val icon = when (item.type.lowercase()) {
+                "tarea" -> "📝"
+                "examen parcial", "examen", "parcial" -> "📋"
+                "laboratorio" -> "🔬"
+                "clase extra" -> "📘"
+                "evento" -> "🎉"
+                "entrega" -> "🚀"
+                else -> "📌"
+            }
+            tvTypeBadge.text = "$icon ${item.type}"
+
+            val locStr = if (item.location.isNotEmpty()) item.location else "Campus"
+            val notesStr = if (item.notes.isNotEmpty()) item.notes else "Sin notas adicionales"
+            tvLocationAndNotes.text = "📍 $locStr • ℹ️ $notesStr"
+
+            tvTime.text = "🕒 ${item.startTime} - ${item.endTime}"
+            tvDate.text = "🗓️ ${item.date}"
+
+            if (item.isCompleted) {
+                tvStatus.text = "✅ Completada"
+                tvStatus.setTextColor(0xFF10B981.toInt())
+                btnToggle.text = "↩ Pendiente"
+                btnToggle.setTextColor(0xFFF59E0B.toInt())
+                tvTitle.paintFlags = tvTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            } else {
+                tvStatus.text = "⏳ Pendiente"
+                tvStatus.setTextColor(0xFFF59E0B.toInt())
+                btnToggle.text = "✓ Completar"
+                btnToggle.setTextColor(0xFF10B981.toInt())
+                tvTitle.paintFlags = tvTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+
+            val defaultColors = listOf("#3B82F6", "#10B981", "#8B5CF6", "#F59E0B", "#EC4899")
+            val chosenColor = try {
+                if (item.colorHex.isNotEmpty()) Color.parseColor(item.colorHex)
+                else Color.parseColor(defaultColors[Math.abs(item.title.hashCode()) % defaultColors.size])
+            } catch (e: Exception) {
+                Color.parseColor("#3B82F6")
+            }
+            vColorBar.setBackgroundColor(chosenColor)
+
+            btnToggle.setOnClickListener { onToggleCompleted(item) }
+            btnEdit.setOnClickListener { onEditClick(item) }
+            btnDelete.setOnClickListener { onDeleteClick(item) }
         }
     }
 }
