@@ -48,6 +48,7 @@ object ThemeHelper {
      * Al usar reinicio limpio de pila tras cambios de tema, las vistas ya se cargan
      * directamente con el tema correcto desde onCreate() sin parpadear.
      */
+    @Suppress("DEPRECATION")
     fun ensureTheme(activity: Activity): Boolean {
         val targetNightMode = if (isDarkMode(activity)) {
             AppCompatDelegate.MODE_NIGHT_YES
@@ -81,6 +82,7 @@ object ThemeHelper {
      * ni parpadeos, asegurando que toda la aplicación y vistas posteriores adopten el tema
      * sin recargas visibles al entrar.
      */
+    @Suppress("DEPRECATION")
     fun setThemeMode(context: Context, mode: String) {
         val target = if (mode == MODE_DARK) MODE_DARK else MODE_LIGHT
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)

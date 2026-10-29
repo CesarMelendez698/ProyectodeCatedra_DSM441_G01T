@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Paleta oficial Fintech Finanzas UDB -->
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="accent">#6366F1</color>
+    <color name="background">#F8FAFC</color>
+    <color name="card">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="border">#E2E8F0</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="premium_card">#1E293B</color>
+    <color name="premium_text">#94A3B8</color>
+    <color name="success">#10B981</color>
+    <color name="income_green">#10B981</color>
+    <color name="danger">#EF4444</color>
+    <color name="expense_red">#EF4444</color>
+    <color name="warning">#F59E0B</color>
+    <color name="input_bg">#F1F5F9</color>
+    <color name="input_border">#E2E8F0</color>
+    <color name="tab_inactive">#64748B</color>
+    <color name="tab_active">#2196F3</color>
+    <color name="header_blue">#1E88E5</color>
 </resources>

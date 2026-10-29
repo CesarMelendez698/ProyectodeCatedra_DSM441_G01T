@@ -49,6 +49,7 @@ object NavigationHelper {
         }
 
         // Navegación nativa entre AppCompatActivities sin animaciones bruscas
+        @Suppress("DEPRECATION")
         fun navigateTo(targetClass: Class<*>, tab: NavTab) {
             if (activeTab == tab) return
             val intent = Intent(activity, targetClass).apply {
